@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartBudget Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="Lagandekho Logo">
+    <span>LAGANDEKHO</span>
+  </div>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#add">Add</a>
+      <a href="#charts">Charts</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button id="exportCSV">Export CSV</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="dashboard">
+    <h2>A Look Into The Future Of Personal Finance</h2>
+    <p>Track expenses, grow savings, and make smarter decisions with real-time insights.</p>
+    <button onclick="document.querySelector('#add').scrollIntoView({behavior:'smooth'})">Start Tracking</button>
+  </section>
+
+  <!-- Summary Cards -->
+  <section class="section">
+    <div class="grid">
+      <div class="card">
+        <h3>Total Income</h3>
+        <div id="totalIncome" class="big-number">₹0</div>
+      </div>
+      <div class="card">
+        <h3>Total Expenses</h3>
+        <div id="totalExpense" class="big-number">₹0</div>
+      </div>
+      <div class="card">
+        <h3>Balance</h3>
+        <div id="balance" class="big-number">₹0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Transaction -->
+  <section class="section" id="add">
+    <div class="card">
+      <h3>Add Transaction</h3>
+      <form id="transactionForm" class="form-grid">
+        <input type="text" id="title" placeholder="Title (e.g., Salary / Lunch)" required />
+        <input type="number" id="amount" step="0.01" placeholder="Amount" required />
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <select id="category">
+          <option value="">Select Category</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Bills</option>
+          <option>Shopping</option>
+          <option>Other</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Transactions List -->
+  <section class="section">
+    <div class="card">
+      <h3>Transactions</h3>
+      <ul id="transactions" class="tx-list"></ul>
+    </div>
+  </section>
+
+  <!-- Charts -->
+  <section class="section" id="charts">
+    <div class="grid">
+      <div class="card chart-container">
+        <h3>Expenses by Category</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div class="card chart-container">
+        <h3>Income vs Expenses (This Month)</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="grid">
+      <div class="card testimonial">
+        <p>“SmartBudget helped me understand where my money actually goes. Game-changer.”</p>
+        <strong>– Aditi</strong>
+      </div>
+      <div class="card testimonial">
+        <p>“Sleek UI, fast, and the CSV export saves me hours.”</p>
+        <strong>– Saurabh</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 SmartBudget. All Rights Reserved. | <a href="#dashboard">Back to top</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
